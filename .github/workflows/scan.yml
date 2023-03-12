@@ -1,0 +1,14 @@
+name: Scan Code Base
+
+on:
+  workflow_dispatch:
+
+jobs:
+  scan_code_base:
+    runs-on: [self-hosted, rez]
+    steps:
+      - name: Launch Action
+        uses: CM/cm-actions/pipeline_trigger@main
+        with:
+          pipe_config: 'scan'
+          rez_config: 'rez-2'
