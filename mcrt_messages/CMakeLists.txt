@@ -19,6 +19,7 @@ target_sources(${component}
         GeometryData.cc
         OutputRates.cc
         PartialFrame.cc
+	ProgressiveFeedback.cc
         ProgressiveFrame.cc
         ProgressMessage.cc
         RDLMessage.cc
@@ -40,6 +41,7 @@ set_property(TARGET ${component}
         GeometryData.h
         OutputRates.h
         PartialFrame.h
+	ProgressiveFeedback.h
         ProgressiveFrame.h
         ProgressMessage.h
         RDLMessage.h

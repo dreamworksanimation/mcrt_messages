@@ -1,7 +1,5 @@
 // Copyright 2023 DreamWorks Animation LLC
 // SPDX-License-Identifier: Apache-2.0
-
-
 #pragma once
 
 #include "BaseFrame.h"
@@ -20,14 +18,15 @@ public:
     ProgressiveFrame() {}
     ~ProgressiveFrame();
 
-    void serialize(arras4::api::DataOutStream& to) const;
-    void deserialize(arras4::api::DataInStream& from, unsigned version);
+    void serialize(arras4::api::DataOutStream& to) const override;
+    void deserialize(arras4::api::DataInStream& from, unsigned version) override;
 
     // required for legacy message chunking support
-    size_t serializedLength() const;
+    size_t serializedLength() const override;
 
     int mMachineId;
     uint32_t mSnapshotId; // unique increment snapshot id per one rendering
+    uint32_t mSendImageActionId; // unique increment send image id from starting the process
     uint64_t mSnapshotStartTime; // time of snapshot start
     int mCoarsePassStatus;       // 0:coarsePass 1:CoarsePassDone 2:unknown
     std::string mDenoiserAlbedoInputName;
@@ -35,4 +34,3 @@ public:
 };
 
 }
-

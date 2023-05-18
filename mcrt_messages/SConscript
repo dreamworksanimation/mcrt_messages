@@ -21,6 +21,7 @@ publicHeaders = [
     'GeometryData.h',
     'OutputRates.h',
     'PartialFrame.h',
+    'ProgressiveFeedback.h',
     'ProgressiveFrame.h',
     'ProgressMessage.h',
     'RDLMessage.h',

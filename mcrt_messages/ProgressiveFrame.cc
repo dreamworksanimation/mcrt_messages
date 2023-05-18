@@ -1,7 +1,5 @@
 // Copyright 2023 DreamWorks Animation LLC
 // SPDX-License-Identifier: Apache-2.0
-
-
 #include "ProgressiveFrame.h"
 #include <arras4_log/Logger.h>
 
@@ -29,6 +27,7 @@ ProgressiveFrame::serialize(arras4::api::DataOutStream& out) const
     ParentClass::serialize(out);
     out.write(mMachineId);
     out.write(mSnapshotId);
+    out.write(mSendImageActionId);
     out.write(mSnapshotStartTime); 
     out.write(mCoarsePassStatus); 
     outString(mDenoiserAlbedoInputName);
@@ -53,6 +52,7 @@ ProgressiveFrame::deserialize(arras4::api::DataInStream& in, unsigned version)
     
     in.read(&mMachineId, sizeof(mMachineId)); 
     in.read(&mSnapshotId, sizeof(mSnapshotId));
+    in.read(&mSendImageActionId, sizeof(mSendImageActionId));
     in.read(&mSnapshotStartTime, sizeof(mSnapshotStartTime));
     in.read(&mCoarsePassStatus, sizeof(mCoarsePassStatus));
     inString(mDenoiserAlbedoInputName);
@@ -62,10 +62,22 @@ ProgressiveFrame::deserialize(arras4::api::DataInStream& in, unsigned version)
 size_t
 ProgressiveFrame::serializedLength() const
 {
-    return ParentClass::serializedLength() +
-	sizeof(mMachineId) + sizeof(mSnapshotId) +
-        sizeof(mSnapshotStartTime) + sizeof(mCoarsePassStatus);
+    auto sizeString = [](const std::string& str) {
+        if (str.empty()) {
+            return sizeof(uint32_t);
+        } else {
+            return sizeof(uint32_t) + str.size();
+        }
+    };
+
+    return (ParentClass::serializedLength() +
+            sizeof(mMachineId) +
+            sizeof(mSnapshotId) +
+            sizeof(mSendImageActionId) +
+            sizeof(mSnapshotStartTime) +
+            sizeof(mCoarsePassStatus) +
+            sizeString(mDenoiserAlbedoInputName) +
+            sizeString(mDenoiserNormalInputName));
 }
 
 }
-
