@@ -55,7 +55,22 @@ pipeline-configurations:
     build:
       rez_args: -b cmake
       prepend_release_dir: true
-      resource: EL7_RaTS_build
+      resource:
+      - EL7_RaTS_build
+      - EL7_RaTS_build
+      - EL7_RaTS_build
+      - EL7_RaTS_build
+      - EL7_RaTS_build
+      - EL7_RaTS_build
+      - EL7_RaTS_build
+      - EL7_RaTS_build
+      - EL7_RaTS_build
+      - EL7_RaTS_build
+      - EL7_RaTS_build
+      - EL9
+      - EL9
+      - EL9
+      - EL9
     test:
       enabled: false
     finalize:
