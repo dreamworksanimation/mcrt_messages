@@ -8,6 +8,7 @@
 include(CMakeFindDependencyMacro)
 
 find_dependency(ArrasCore)
+find_dependency(JsonCpp)
 
 include("${CMAKE_CURRENT_LIST_DIR}/@PROJECT_NAME@Targets.cmake")
 

@@ -6,6 +6,10 @@
 #include <message_api/MessageFormatError.h>
 #include <arras4_log/Logger.h>
 
+#if defined(JSONCPP_VERSION_MAJOR)
+#define memberName name
+#endif
+
 namespace mcrt {
 
 const char* OutputRates::SET_OUTPUT_RATES_ID = "67e036dc-cc53-4d9b-bbc0-2c00aaf97445";

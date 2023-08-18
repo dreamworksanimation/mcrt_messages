@@ -9,6 +9,11 @@
 #include <json/reader.h>
 #include <sstream>
 
+#if !defined(JSONCPP_VERSION_MAJOR)
+// Newer jsoncpp versions fix the spelling error.
+#define getFormattedErrorMessages  getFormatedErrorMessages
+#endif
+
 namespace mcrt {
 
 ARRAS_CONTENT_IMPL(JSONMessage);
@@ -56,7 +61,7 @@ namespace {
             root[JSONMessage::MESSAGE_ROOT][JSONMessage::MESSAGE_NAME].isNull()) {
 
             std::ostringstream oss;
-            oss << "JSON Parse Error!" << reader.getFormatedErrorMessages();
+            oss << "JSON Parse Error!" << reader.getFormattedErrorMessages();
             throw arras4::api::MessageFormatError(oss.str());
         }
     }

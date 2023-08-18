@@ -71,7 +71,8 @@ sconsTargets = {
 }
 
 requires = [
-    'arras4_core'
+    'arras4_core-4.10',
+    'jsoncpp-1.9.5.x',
 ]
 
 private_build_requires = [

@@ -33,6 +33,7 @@ endif()
 if("${PROJECT_NAME}" STREQUAL "${CMAKE_PROJECT_NAME}")
     find_package(ArrasCore REQUIRED)
 endif()
+find_package(JsonCpp REQUIRED)
 
 # ================================================
 # Set the RPATH for binaries in the install tree
