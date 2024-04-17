@@ -17,11 +17,11 @@ public:
  
     RDLMessage() : mForceReload(false) {}
 
-    void serialize(arras4::api::DataOutStream& to) const;
-    void deserialize(arras4::api::DataInStream& from, unsigned version);
+    void serialize(arras4::api::DataOutStream& to) const override;
+    void deserialize(arras4::api::DataInStream& from, unsigned version) override;
 
     // required for legacy message chunking
-    size_t serializedLength() const;
+    size_t serializedLength() const override;
 
     // These are byte strings, not ASCII strings.
     std::string mManifest;

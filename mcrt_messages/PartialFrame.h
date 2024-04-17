@@ -20,8 +20,8 @@ public:
     PartialFrame() {}
     ~PartialFrame();
 
-    void serialize(arras4::api::DataOutStream& to) const;
-    void deserialize(arras4::api::DataInStream& from, unsigned version);
+    void serialize(arras4::api::DataOutStream& to) const override;
+    void deserialize(arras4::api::DataInStream& from, unsigned version) override;
 
     int mMachineId;
     uint64_t mSnapshotStartTime; // time of snapshot start

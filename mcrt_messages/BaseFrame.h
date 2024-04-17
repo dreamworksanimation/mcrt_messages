@@ -45,11 +45,11 @@ public:
     BaseFrame();
     ~BaseFrame();
 
-    void serialize(arras4::api::DataOutStream& to) const;
-    void deserialize(arras4::api::DataInStream& from, unsigned version);
+    void serialize(arras4::api::DataOutStream& to) const override;
+    void deserialize(arras4::api::DataInStream& from, unsigned version) override;
 
     // required for legacy message vhunking support
-    size_t serializedLength() const;
+    size_t serializedLength() const override;
 
     /**
      * Enumeration representing the different states the renderer is in that produced this frame

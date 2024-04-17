@@ -17,8 +17,8 @@ public:
     ViewportMessage() : mX(0), mY(0), mW(0), mH(0) {}
     ViewportMessage(int x, int y, int w, int h) : mX(x), mY(y), mW(w), mH(h) {}
 
-    void serialize(arras4::api::DataOutStream& to) const;
-    void deserialize(arras4::api::DataInStream& from, unsigned version);
+    void serialize(arras4::api::DataOutStream& to) const override;
+    void deserialize(arras4::api::DataInStream& from, unsigned version) override;
 
     int x() const { return mX; }
     int y() const { return mY; }

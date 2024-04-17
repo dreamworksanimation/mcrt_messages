@@ -19,11 +19,11 @@ public:
     ~RenderedFrame();
 
     // required for legacy MessageChunking support
-    size_t serializedLength() const;
+    size_t serializedLength() const override;
 
     // Message implementation
-    void serialize(arras4::api::DataOutStream& to) const;
-    void deserialize(arras4::api::DataInStream& from, unsigned version);
+    void serialize(arras4::api::DataOutStream& to) const override;
+    void deserialize(arras4::api::DataInStream& from, unsigned version) override;
 
     /**
      * Enumeration representing which eye to render was rendered for stereoscopic rendering

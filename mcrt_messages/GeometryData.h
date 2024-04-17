@@ -21,8 +21,8 @@ public:
     GeometryData() : mFrame(-1) {}
     ~GeometryData() {}
 
-    void serialize(arras4::api::DataOutStream& to) const;
-    void deserialize(arras4::api::DataInStream& from, unsigned version);
+    void serialize(arras4::api::DataOutStream& to) const override;
+    void deserialize(arras4::api::DataInStream& from, unsigned version) override;
 
     std::vector<moonray::ObjectData> mObjectData;
 

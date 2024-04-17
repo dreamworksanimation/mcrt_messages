@@ -30,8 +30,8 @@ public:
     static const char* MESSAGE_NAME;
     static const char* MESSAGE_PAYLOAD;
 
-    void serialize(arras4::api::DataOutStream& to) const;
-    void deserialize(arras4::api::DataInStream& from, unsigned version);
+    void serialize(arras4::api::DataOutStream& to) const override;
+    void deserialize(arras4::api::DataInStream& from, unsigned version) override;
 
 
     static JSONMessage::Ptr create(const std::string& id,

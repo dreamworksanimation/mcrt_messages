@@ -18,8 +18,8 @@ namespace mcrt {
         ~CreditUpdate();
 
         // Message implementation
-        void serialize(arras4::api::DataOutStream& to) const;
-        void deserialize(arras4::api::DataInStream& from, unsigned version);
+        void serialize(arras4::api::DataOutStream& to) const override;
+        void deserialize(arras4::api::DataInStream& from, unsigned version) override;
 
         const std::string& name() const { return mName; }
         std::string& name() { return mName; }

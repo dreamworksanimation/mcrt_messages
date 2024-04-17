@@ -15,13 +15,13 @@ class ProgressMessage : public arras4::api::ObjectContent
 public:
 
     ARRAS_CONTENT_CLASS(ProgressMessage,"54dbf584-67df-4ec4-ac9f-7ccb7951e0e1",0);
-    
+
     ProgressMessage() {}
 
     ~ProgressMessage() {}
 
-    void serialize(arras4::api::DataOutStream& to) const;
-    void deserialize(arras4::api::DataInStream& from, unsigned version);
+    void serialize(arras4::api::DataOutStream& to) const override;
+    void deserialize(arras4::api::DataInStream& from, unsigned version) override;
 
     arras4::api::ObjectRef object() { return mObject; }
     arras4::api::ObjectConstRef object() const { return mObject; }
