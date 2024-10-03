@@ -219,7 +219,8 @@ package-configurations:
     packages_path:
     - /rel/rez/dwa
     - /rel/rez/third_party
-w    - /rel/lang/python/packages
+    - /rel/rez/pypi
+    - /rel/lang/python/packages
     release_packages_path: /rel/rez/dwa
     symlink_directory: null
     symlinks: false
